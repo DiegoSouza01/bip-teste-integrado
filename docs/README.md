@@ -41,3 +41,39 @@ Criar solução completa em camadas (DB, EJB, Backend, Frontend), corrigindo bug
 - Testes (15%)
 - Documentação (10%)
 - Frontend (10%)
+
+
+## ⚙️ Como Executar o Projeto
+
+O projeto foi configurado para rodar de forma extremamente simples.
+
+### 1. Rodando o Back-end (Spring Boot)
+1. Certifique-se de ter o Java 17+ e o Maven instalados.
+2. Navegue até a pasta do back-end (`backend-module`).
+3. Execute o comando Maven ou dê o play na sua IDE (IntelliJ/Eclipse) no arquivo `BackendApplication.java`:
+   ```bash
+   mvn spring-boot:run
+
+O servidor iniciará na porta 8080 e o banco de dados será populado automaticamente.
+
+Rodando o Front-end (Angular):
+
+Certifique-se de ter o Node.js e o Angular CLI instalados.
+Navegue até a pasta do front-end.
+Instale as dependências e inicie o servidor:
+  ```bash
+  npm install
+  ng serve
+```
+Acesse a aplicação no navegador em: http://localhost:4200
+
+Documentação da API (Swagger):
+A API está totalmente documentada e pode ser testada visualmente. Com o back-end rodando, acesse:
+👉 http://localhost:8080/swagger-ui/index.html
+
+Testes Unitários:
+A lógica de negócios principal (transferência de valores) está coberta por testes automatizados utilizando JUnit e Mockito, simulando o comportamento do banco de dados para garantir a exatidão matemática e as validações de saldo insuficiente.
+
+```bash
+mvn test
+```
