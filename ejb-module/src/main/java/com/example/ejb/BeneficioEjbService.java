@@ -1,3 +1,6 @@
+package com.example.ejb;
+
+import com.example.backend.model.Beneficio;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.LockModeType;
@@ -18,11 +21,9 @@ public class BeneficioEjbService {
             throw new IllegalArgumentException("As contas de origem e destino não podem ser a mesma.");
         }
 
-        //Prevenção de Deadlock
         Long firstLockId = fromId < toId ? fromId : toId;
         Long secondLockId = fromId < toId ? toId : fromId;
 
-        //Busca com Pessimistic Write Lock
         Beneficio firstLock = em.find(Beneficio.class, firstLockId, LockModeType.PESSIMISTIC_WRITE);
         Beneficio secondLock = em.find(Beneficio.class, secondLockId, LockModeType.PESSIMISTIC_WRITE);
 
